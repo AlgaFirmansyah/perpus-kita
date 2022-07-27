@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% include "perpustakaan/navbar.html" %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <br><br>
+    <center>
+        <form action="" method="post">
+            <h3 class="p-3 mb-2 bg-success text-white" style='font-size: 30px;text-align:center;'>Data Buku</h3>
+            {% csrf_token %}
+            <div class="container">
+                <table class="table table-hover table-condensed table-striped table-bordered">
+                    <tr>
+                        <td>idbuku</td>
+                        <td>{{lihatbuku.idbuku}} <a class="e" href="/editbuku/{{lihatbuku.idbuku}}">edit</a></td>
+                        <td align="center" valign="middle">Cover</td>
+                    </tr>
+                    <tr>
+                        <td>judul</td>
+                        <td>{{lihatbuku.judul}}</td>
+                        <td rowspan="6" align="center"><img src="{{lihatbuku.cover.url}}" alt="connect" style="max-height:300px"></td>
+                    </tr>
+                    <tr>
+                        <td>pengarang</td>
+                        <td>{{lihatbuku.pengarang}}</td>
+                    </tr>
+                    <tr>
+                        <td>Kategori</td>
+                        <td>{{lihatbuku.kategori}}</td>
+                    </tr>
+                    <tr>
+                        <td>Sinopsis</td>
+                        <td>{{lihatbuku.sinopsis}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tahun Terbit</td>
+                        <td>{{lihatbuku.tahunterbit}}</td>
+                    </tr>
+                    <tr>
+                        <td>Penerbit</td>
+                        <td>{{lihatbuku.penerbit}}</td>
+                    </tr>
+                    <div class="links"></div>
+                </table>
+            </div>
+        </form>
+
+
+    </center>
+
+    {% include "perpustakaan/footer.html" %}  
+</body>
+
+</html>

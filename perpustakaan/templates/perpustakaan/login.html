@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Perpus Kita</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<style type="text/css">
+    .bs-example{
+        margin: 0px;
+
+    }
+.navbar-brand{
+  font-size: 20px;
+  font-family: sans-serif;
+
+}
+img {
+  border-radius: 8px;
+  width: 170px;
+}
+
+
+</style>
+</head>
+  <body align = "center" >
+    {% include "perpustakaan/navlogin.html" %}
+    
+<br>
+<br><br><h1 class="p-3 mb-2 bg-success text-white" style = 'font-size: 30px;text-align:center;'>login Sebagai Operator</h1>
+    <form method="POST" class="form-horizontal">
+        {% csrf_token %}
+        <div class="form-group text-center">
+          <label class="control-label col-xs-4"></label>
+          <div class="col-xs-8">
+            <table align="center" class="table table-hover table-condensed table-striped table-bordered" >
+              <tr> <td>username</td> </tr>
+              <tr><td><input type="text" name="username" id="username"></td></tr>
+              <tr><td>password</td> </tr>
+              <tr><td><input type="password" name="password" id="password"></td></tr>
+              <tr>
+                <td>
+                <input type="submit" value="submit" class="btn btn-primary">   
+              </td>           
+              </tr>
+            </table>
+          
+           </div>
+        </div>
+        <table align="center" border="0" cellspacing="0">
+
+
+        </table>          
+
+        
+      {% if messages %}
+			<ul class="alert alert-success">
+				{% for message in messages %}
+				<li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+      <table align="center"></table>
+        
+      
+    </form>
+    <h5 align="center">login sebagai <a href="/admin">admin</a></h5>
+  </body>
+</html>

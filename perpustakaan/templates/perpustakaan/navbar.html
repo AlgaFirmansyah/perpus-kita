@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Perpus Kita</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+    .bs-example {
+      margin: 0px;
+
+    }
+
+    .navbar-brand {
+      font-size: 20px;
+      font-family: sans-serif;
+    }
+
+    img {
+      border-radius: 8px;
+      width: 170px;
+    }
+
+    img.bg {
+      position: relative;
+      width: 100%;
+    }
+
+    .b {
+      background-color: #f44336;
+      color: white;
+      padding: 5px 14px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 10px;
+    }
+
+    .e {
+      background-color: #00740e;
+      color: white;
+      padding: 5px 14px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 10px;
+    }
+
+    .c {
+      background-color: #00388d;
+      color: white;
+      padding: 5px 14px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 10px;
+    }
+
+    .ytm {
+      position: absolute;
+      top: 8%;
+      width: 100%;
+      height: 10cm;
+      z-index: 4;
+    }
+
+    .yng{
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)) , url("{% static 'wp2.jpg' %}");
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    -webkit-background-sizi: cover;
+    position: relative;
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="bs-example">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+      <img src="{% static 'logo.png'%}" alt="">
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+        <div class="navbar-nav"></div>
+        <div class="navbar-nav">
+          <a href="#" class="nav-item nav-link active">{{user}}</a>
+          <a href="/perpuskita" class="nav-item nav-link active">home</a>
+
+          <!--for book dropdown button-->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Buku</a>
+            <div class="dropdown-menu">
+              <a href="{% url 'perpustakaan:formbuku'%}" class="dropdown-item">Tambah Buku</a>
+              <a href="{% url 'perpustakaan:list_buku'%}" class="dropdown-item">Daftar Buku</a>
+            </div>
+          </div>
+          <!--for issuebook dropdown button-->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Mahasiswa</a>
+            <div class="dropdown-menu">
+              <a href="{% url 'perpustakaan:formmhs' %}" class="dropdown-item">tambah Mahasiswa</a>
+              <a href="{% url 'perpustakaan:list_mhs'%}" class="dropdown-item">Daftar Mahasiswa</a>
+            </div>
+          </div>
+
+          <!--for student dropdown button-->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pinjaman</a>
+            <div class="dropdown-menu">
+              <a href="{% url 'perpustakaan:formpinjam' %}" class="dropdown-item">Tambah Pinjaman</a>
+              <a href="{% url 'perpustakaan:list_pinjam' %}" class="dropdown-item">Daftar Pinjaman</a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <a href="{% url 'perpustakaan:logout' %}" class="nav-item nav-link active">Logout</a>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </nav>
+  </div>
+
+
+</body>
+
+</html>

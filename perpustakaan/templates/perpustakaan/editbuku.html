@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% include "perpustakaan/navbar.html" %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <br><br>
+    <center>
+        <h3 class="p-3 mb-2 bg-success text-white" style='font-size: 30px;text-align:center;'>Ubah Data Buku</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="container">
+                <table class="table table-hover table-condensed table-striped table-bordered">
+                    <tr>
+                        <td>idbuku</td>
+                        <td><input type="text" name="idbuku" value="{{editbuku.idbuku}}"></td>
+                        <td>cover</td>
+                    </tr>
+                    <tr>
+                        <td>judul</td>
+                        <td><input type="text" name="judul" value="{{editbuku.judul}}"> </td>
+                        <td rowspan="6" align="center"><img src="{{editbuku.cover.url}}" alt="connect" style="max-height:300px"></td>
+                    </tr>
+                    <tr>
+                        <td>pengarang</td>
+                        <td><input type="text" name="pengarang" value="{{editbuku.pengarang}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Kategori</td>
+                        <td><input type="text" name="kategori" value="{{editbuku.kategori}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Sinopsis</td>
+                        <td><input type="text" name="sinopsis" value="{{editbuku.sinopsis}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Tahun Terbit</td>
+                        <td><input type="text" name="tahunterbit" value="{{editbuku.tahunterbit}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Penerbit</td>
+                        <td><input type="text" name="penerbit" value="{{editbuku.penerbit}}"></td>
+                    </tr>
+                    <div class="links"></div>
+                    <tr>
+                        <td>OPSI</td>
+                        <td><input type="submit" value="Simpan" onclick="return confirm('apakah anda yakin ingin mengubah')"> </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+        {% if messages %}
+        <ul class="alert alert-success">
+            {% for message in messages %}
+            <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} <a href="{% url 'perpustakaan:list_buku' %}">lihat</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </center>
+    {% include "perpustakaan/footer.html" %}  
+</body>
+
+</html>

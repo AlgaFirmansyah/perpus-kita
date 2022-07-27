@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Perpus Kita</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<style type="text/css">
+    .bs-example{
+        margin: 0px;
+
+    }
+.navbar-brand{
+  font-size: 20px;
+  font-family: sans-serif;
+
+}
+img {
+  border-radius: 8px;
+  width: 170px;
+}
+
+
+</style>
+</head>
+  <body>
+    {% include "perpustakaan/navlogin.html" %}
+
+    <form method="POST">
+        {% csrf_token %}
+      <label for="user" >username</label>
+      <input type="text" name="username" id="username">
+      <br>
+      <label for="password" >password</label>
+      <input type="password" name="password" id="password">
+      <input type="submit" name="submit" id="submit" value="submit">
+      {% if messages %}
+			<ul class="alert alert-success">
+				{% for message in messages %}
+				<li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+    </form>
+  </body>
+</html>

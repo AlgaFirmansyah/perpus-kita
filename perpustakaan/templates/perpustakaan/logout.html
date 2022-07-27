@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "perpustakaan/navbar.html" %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logout</title>
+</head>
+<body>
+    <center>
+    <form method="POST">
+        {% csrf_token %}
+        <br>
+        <br>
+        <h2 class="p-3 mb-2 bg-success text-white">Logout</h2>
+       <h3> apakah anda yakin akan logout</h3> 
+       <input type="submit" name="submit">
+    </form>        
+    </center>
+<br><br><br><br><br><br><br><br>
+    {% include "perpustakaan/footer.html" %}  
+</body>
+</html>

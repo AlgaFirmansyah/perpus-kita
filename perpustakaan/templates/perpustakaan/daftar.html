@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            /* (A) GLOBAL */
+* {
+  font-family: arial, sans-serif;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  padding: 0; margin: 0;
+}
+
+/* (B) SIDEBAR */
+/* (B1) SIDEBAR ITSELF */
+#pgside {
+  width: 200px;
+  transition: width 0.2s;
+  background: #283039;
+}
+
+/* (B2) USER OR BRANDING */
+#pgside #pguser {
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+}
+#pgside #pguser img {
+  width: 50px;
+  margin-right: 5px;
+  border-radius: 50%
+}
+
+/* (B3) SIDEBAR ITEMS */
+#pgside, #pgside a { color: #fff; }
+#pgside a {
+  display: block;
+  padding: 20px;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+#pgside a.current { background: #7c1919; }
+#pgside a:hover { background: #9b2323; }
+
+/* (B4) SIDEBAR ICONS & TEXT */
+#pgside i.ico, #pgside i.txt { font-style: normal; }
+#pgside i.ico {
+  font-size: 1.1em;
+  margin-right: 10px;
+}
+
+/* (B5) SMALL SCREEN TRANSFORMATION */
+@media screen and (max-width:768px) {
+  #pgside { width: 70px; }
+  #pgside #pguser { justify-content: center; }
+  #pgside a {
+    text-align: center;
+    padding: 20px 0;
+  }
+  #pgside i.ico {
+    font-size: 1.5em;
+    margin-right: 0;
+  }
+  #pgside i.txt { display: none; }
+}
+
+/* (C) MAIN CONTENTS */
+#pgmain {
+  flex-grow: 1;
+  padding: 20px;
+  background: #f2f2f2;
+}
+main {
+  margin: 0;
+  padding: 5px;
+  background-color: lightgray;
+}
+
+main > h1, p, .browser {
+  margin: 10px;
+  padding: 5px;
+}
+
+.browser {
+  background: white;
+}
+
+.browser > h2, p {
+  margin: 4px;
+  font-size: 90%;
+}
+.b {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+    </style>
+</head>
+<body>
+   <!-- (A) SIDEBAR -->
+   <div id="pgside">
+    <!-- (A1) BRANDING OR USER -->
+    <!-- LINK TO DASHBOARD OR LOGOUT -->
+    <div id="pguser">
+      <img src="potato.png"/>
+      <i class="txt">MY ADMIN</i>
+    </div>
+
+    <!-- (A2) MENU ITEMS -->
+    <a href="{% url 'perpustakaan:form_mhs' %}" >
+      <i class="far fa-address-card">&#xf2bb;</i>
+      <i class="txt">Mahasiswa</i>
+    </a>
+    <a href="{% url 'perpustakaan:formbuku'%}">
+      <i class="ico">&#9728;</i>
+      <i class="txt">Buku</i>
+    </a>
+    <a href="{% url 'perpustakaan:formpinjam'%}">
+      <i class="ico">&#9738;</i>
+      <i class="txt">Pinjaman</i>
+    </a>
+    <a href="{% url 'perpustakaan:daftar'%}">
+      <i class="ico">&#9737;</i>
+      <i class="txt">lihat Daftar</i>
+    </a>
+  </div>
+
+  <main>
+    <a class="b" href="{% url 'perpustakaan:list_buku'%}">daftar buku</a>
+    <a class="b" href="{% url 'perpustakaan:list_mahasiswa'%}">daftar Mahasiswa</a>
+    <a class="b" href="{% url 'perpustakaan:daftarpinjam'%}">daftar pinjaman</a>
+  </main>
+  
+
+</body>
+</html>

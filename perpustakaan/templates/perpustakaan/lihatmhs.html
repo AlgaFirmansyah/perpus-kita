@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% include "perpustakaan/navbar.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <br><br>
+    <center>
+        <form action="" method="post">
+        <h3 class="p-3 mb-2 bg-success text-white" style='font-size: 30px;text-align:center;'>Data Mahasiswa</h3>
+            {% csrf_token %}
+            <div class="container">
+                <table class="table table-hover table-condensed table-striped table-bordered">
+                    <tr>
+                        <td>npm</td>
+                        <td>{{lihatmhs.npm}}                <a class="e" href="/editmhs/{{lihatmhs.npm}}">edit</a>
+                        </td>
+                        <td>gambar</td>
+                    </tr>
+                    <tr>
+                        <td>Nama</td>
+                        <td>{{lihatmhs.nama}}</td>
+                        <td rowspan="6" align="center"><img src="{{lihatmhs.foto.url}}" alt="connect" style="max-height:300px"></td>
+                    </tr>
+                    <tr>
+                        <td>Jurusan</td>
+                        <td>{{lihatmhs.jurusan}}</td>
+                    </tr>
+                    <tr>
+                        <td>No HP</td>
+                        <td>{{lihatmhs.no_hp}}</td>
+                    </tr>
+                    <tr>
+                        <td>No KTP</td>
+                        <td>{{lihatmhs.no_ktp}}</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>{{lihatmhs.alamat}}</td>
+                    </tr>
+                    <div class="links"></div>
+                </table>
+            </div>            
+        </form>
+
+        
+    </center>
+
+    {% include "perpustakaan/footer.html" %}  
+</body>
+
+</html>
